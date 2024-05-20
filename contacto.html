@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Recetas Veggies</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Contacto</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="platos-principales.html">Platos Principales</a></li>
+                <li><a href="ensaladas.html">Ensaladas</a></li>
+                <li><a href="postres.html">Postres</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Formulario de Contacto</h2>
+            <form id="contactForm" action="procesar-formulario.php" method="post">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" name="mensaje" required></textarea>
+
+                <label for="tipo-consulta">Tipo de Consulta:</label>
+                <select id="tipo-consulta" name="tipo-consulta" required>
+                    <option value="">Seleccione</option>
+                    <option value="receta">Receta</option>
+                    <option value="sugerencia">Sugerencia</option>
+                    <option value="otro">Otro</option>
+                </select>
+
+                <label>¿Desea recibir noticias?</label>
+                <label for="si-noticias">Sí</label>
+                <input type="radio" id="si-noticias" name="noticias" value="si">
+                <label for="no-noticias">No</label>
+                <input type="radio" id="no-noticias" name="noticias" value="no" checked>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Derechos de autor © 2024 Recetas Veggies</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            var nombre = document.getElementById('nombre').value;
+            var email = document.getElementById('email').value;
+            var mensaje = document.getElementById('mensaje').value;
+            var tipoConsulta = document.getElementById('tipo-consulta').value;
+
+            if (!nombre || !email || !mensaje || !tipoConsulta) {
+                alert('Todos los campos son obligatorios.');
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
